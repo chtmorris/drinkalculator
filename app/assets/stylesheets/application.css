@@ -11,3 +11,89 @@
  *= require_self
  *= require_tree .
  */
+
+html, body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+  /*background: url("http://www.sevva.hk/images/about/terrace/terrace_seaview.jpg") no-repeat center center fixed;*/
+/*  background-size:cover;*/
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-brand {
+  font-family: 'Revalia', cursive;
+}
+
+.form-control {
+    border: 1px solid #D6D6D6;
+    border-radius: 0;
+    box-shadow: none;
+    height: 40px;
+    padding: 6px 15px;
+}
+
+.control-label {
+  color: white;
+  font-weight: normal;
+}
+
+.row {
+    padding: 20px 50px 20px 50px;
+    margin: 100px 100px 100px 100px;
+}
+
+.page-header {
+  color: white;
+}
+
+legend {
+    border: medium none;
+    color: #7F7F7F;
+    display: block;
+    font-size: 20px;
+    line-height: inherit;
+    margin-bottom: 15px;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.btn {
+    padding: 5px;
+    border-radius: 0;
+    border: none;
+    font-size: 21px;
+    margin-top: 20px;
+}
+
+
+/*FOOTER*/
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -30px;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+  #footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.chuck-footer {
+  color: white;
+  text-align: right;
+  margin-right: 30px;
+}
+

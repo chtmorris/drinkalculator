@@ -2,10 +2,26 @@ doctype html
 
 head
   title Drinkalculator
+  link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet"
   = stylesheet_link_tag "application", media: "all"
   = javascript_include_tag "application"
   = csrf_meta_tags
-  link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet"
+  link href='http://fonts.googleapis.com/css?family=Revalia' rel='stylesheet' type='text/css'
 
 body
-  == yield
+  div id="wrap"
+    header class="navbar navbar-inverse navbar-fixed-top" role="banner"
+      div class="container"
+        h1 class="navbar-brand" Drinkalculator
+
+    == yield
+
+  div id="push"
+
+  footer role="footer"
+    div id="footer"
+      div class="chuck-footer"
+        p
+          a href="/privacy" Privacy Policy &bull;
+          a href="/terms" Terms of use &bull;
+          | 2014 Drinkalculator &copy;
