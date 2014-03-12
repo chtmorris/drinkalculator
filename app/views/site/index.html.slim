@@ -22,3 +22,11 @@ main role="main" class="container"
           div class="form-group"
             div class="col-md-12"
               input type="submit" value="Sign In" class="btn btn-success col-md-12"
+
+p
+  | Hi there (form code here)
+
+ol
+  - @users.each do |user|
+    li
+      = user.email
