@@ -1,7 +1,7 @@
 class SessionController < ApplicationController
 
   def new
-    render text: "Display the log in form."
+    # render text: "Display the log in form."
   end
 
   def create
