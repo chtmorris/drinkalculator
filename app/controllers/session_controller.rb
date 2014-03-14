@@ -9,7 +9,7 @@ class SessionController < ApplicationController
 
     if @user
       session[:user_id] = @user.id
-      render text: "Logged in yo! #{@user.email}"
+      redirect_to root_url
     else
       render text: "Who are you?"
     end
@@ -18,6 +18,7 @@ class SessionController < ApplicationController
 
   def destroy
     render text: "Log user out."
+    session[:user_id] = nil
   end
 
 end
