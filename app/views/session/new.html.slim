@@ -10,7 +10,6 @@ style html, body {background: url("http://www.sevva.hk/images/about/terrace/terr
             legend class="page-header"
               h2 Please Sign in
 
-            .form-group = flash.map {| key, value| "#{key.capitalize}: #{value}"}.join(";")
             .form-group
               / = f.label :email, class: "col-md-1 control-label"
               div class="col-md-12"
