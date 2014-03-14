@@ -11,7 +11,8 @@ class SessionController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_url
     else
-      render text: "Who are you?"
+      # render text: "Who are you?"
+      render :new
     end
 
   end
