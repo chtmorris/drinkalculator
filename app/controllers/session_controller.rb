@@ -2,6 +2,7 @@ class SessionController < ApplicationController
 
   def new
     # render text: "Display the log in form."
+    @messages = flash.map {| key, value| "#{key.capitalize}: #{value}"}.join(";")
   end
 
   def create
@@ -18,8 +19,9 @@ class SessionController < ApplicationController
   end
 
   def destroy
-    render text: "Log user out."
+    # render text: "Log user out."
     session[:user_id] = nil
+    redirect_to login_url, notice: "You've successfully logged out."
   end
 
 end
