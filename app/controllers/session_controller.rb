@@ -1,16 +1,21 @@
 class SessionController < ApplicationController
 
   def new
-    # render text: "Display the log in form."
-    # @messages = flash.map {| key, value| "#{key.capitalize}: #{value}"}.join(";")
     redirect_to root_url, notice: "You are already logged in" if current_user
   end
 
   def create
-    @user = User.authenticate(params[:user][:email], params[:user][:password])
+    # @user = User.authenticate(params[:user][:email], params[:user][:password])
+    user = User.find_by(email: params[:user][:email])
+    password = params[:user][:password]
 
-    if @user
-      session[:user_id] = @user.id
+
+    if password.blank?
+      user.set_password_reset if user
+      flash.now[:notice] = "We'll send you an e-mail..."
+      render :new
+    elsif user and user.authenticate(password)
+      session[:user_id] = user.id
       redirect_to root_url
     else
       # render text: "Who are you?"
