@@ -70,6 +70,12 @@ legend {
     margin-top: 20px;
 }
 
+.logout-link {
+  margin-top: 8px;
+  font-size: 16px;
+  border-radius: 20px;
+}
+
 
 /*FOOTER*/
 /* Wrapper for page content to push down footer */
