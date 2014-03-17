@@ -10,8 +10,9 @@ class SessionController < ApplicationController
     password = params[:user][:password]
 
 
-    if password.blank?
-      user.set_password_reset if user
+    if user and password.blank?
+      user.set_password_reset
+      UserNotifier.reset_password(user).deliver
       flash.now[:notice] = "We'll send you an e-mail..."
       render :new
     elsif user and user.authenticate(password)

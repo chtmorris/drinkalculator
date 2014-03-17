@@ -7,7 +7,11 @@ Drinkalculator::Application.routes.draw do
   delete  'logout'  => 'session#destroy'
   get     'logout'  => 'session#destroy'  #TODO: remove before deployment
 
-  get 'privacy' => 'site#privacy'
-  get 'terms' => 'site#terms'
+  get 'privacy'     => 'site#privacy'
+  get 'terms'       => 'site#terms'
+
+  get 'reset/:code'   => 'password#edit', as: :reset
+  put 'reset/:code'   => 'password#update'
+  patch 'reset/:code' => 'password#update'
 
 end
