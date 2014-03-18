@@ -5,24 +5,16 @@ class SessionController < ApplicationController
   end
 
   def create
-    # @user = User.authenticate(params[:user][:email], params[:user][:password])
-    user = User.find_by(email: params[:user][:email])
-    password = params[:user][:password]
-
-
-    if user and password.blank?
-      user.set_password_reset
-      UserNotifier.reset_password(user).deliver
-      flash.now[:notice] = "We'll send you an e-mail..."
-      render :new
-    elsif user and user.authenticate(password)
-      session[:user_id] = user.id
-      redirect_to root_url
+    if params[:user][:password].blank?
+      #password reset flow
+      PasswordResetter.new(flash).handle_reset_request(user_params)
     else
-      # render text: "Who are you?"
-      flash.now[:alert] = "Unable to log you in.  Please check your email and password and try again."
-      render :new
+      #authenticate password flow
+      UserAuthenticator.new(session, flash).authenticate_user(user_params)
     end
+    (redirect_to root_url and return) if flash.empty?
+    render :new
+  end
 
   end
 
@@ -30,6 +22,12 @@ class SessionController < ApplicationController
     # render text: "Log user out."
     session[:user_id] = nil
     redirect_to login_url, notice: "You've successfully logged out."
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :password)
   end
 
 end
