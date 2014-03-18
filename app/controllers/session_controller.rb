@@ -9,7 +9,6 @@ class SessionController < ApplicationController
     user = User.find_by(email: params[:user][:email])
     password = params[:user][:password]
 
-
     if user and password.blank?
       user.set_password_reset
       UserNotifier.reset_password(user).deliver
