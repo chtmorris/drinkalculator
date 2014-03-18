@@ -16,8 +16,6 @@ class SessionController < ApplicationController
     render :new
   end
 
-  end
-
   def destroy
     # render text: "Log user out."
     session[:user_id] = nil
