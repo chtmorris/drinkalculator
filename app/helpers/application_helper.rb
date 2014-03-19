@@ -24,7 +24,7 @@ module ApplicationHelper
     content_tag(:ul,
       errors.to_a.map do |message|
         content_tag( :li, message ) unless message.blank?
-      end.compact,join.html_safe
+      end.compact.join.html_safe
     ) unless errors.empty?
   end
 

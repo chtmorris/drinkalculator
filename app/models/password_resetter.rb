@@ -34,4 +34,13 @@ class PasswordResetter
     end
   end
 
+  def self.password_blank(user)
+    user.errors.add(:password, "can't be blank")
+    error_alert
+  end
+
+  def error_alert(user)
+    @flash.now[:alert] = user.errors
+  end
+
 end
