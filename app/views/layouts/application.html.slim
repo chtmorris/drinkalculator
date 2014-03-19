@@ -17,7 +17,6 @@ body
         h1 class="navbar-brand" Drinkalculator
 
     == yield
-    == render partial: "layouts/messages"
 
   div id="push"
 
@@ -30,3 +29,4 @@ body
           = link_to "Terms and Conditions", terms_url
           | &bull;
           | &copy; 2014 Drinkalculator
+  == flash_noty_script_tag
