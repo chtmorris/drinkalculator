@@ -1,43 +1,31 @@
 class PasswordController < ApplicationController
 
   LINK_EXPIRED = "Your reset link has expired. Please generate a new one."
+  PASSWORD_RESET = "Your password has been successfully reset."
 
   def edit
-    unless user_found
+    unless @user = User.find_by_code( params[:code] )
       redirect_to login_url, notice: LINK_EXPIRED
     end
   end
 
   def update
-    if user_found
-      password_scenarios
+    if @user = User.find_by_code( params[:code] )
+    # if user is found
+      if PasswordResetter.new(flash).update_password( @user, user_params )
+        return if log_user_in( @user, PASSWORD_RESET )
+        # redirect_to( root_url, notice: PASSWORD_RESET ) and return
+      else
+        flash.now[:alert] = @user.errors
+      end
+
+    # otherwise show a message not found
     else
-      render text: "No code found"
+      flash.now[:alert] = LINK_EXPIRED
     end
+    render :edit
+
   end
-
-  def password_confirmed
-    UserNotifier.password_was_reset(@user).deliver
-    log_user_in( @user, "Your password has been successfully reset" )
-  end
-
-  def password_scenarios
-    if params[:user][:password].blank?
-      PasswordResetter.password_blank
-
-    elsif @user.reset_password( user_params )
-      password_confirmed
-
-    else
-      PasswordResetter.new(flash).error_alert(@user)
-      render :edit
-    end
-  end
-
-  def user_found
-    @user = User.find_by_code( params[:code] )
-  end
-
 
   private
 

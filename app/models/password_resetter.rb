@@ -17,6 +17,15 @@ class PasswordResetter
     end
   end
 
+  def update_password(user, params)
+    if user.reset_password( params )
+      UserNotifier.password_was_reset( user ).deliver
+      return true
+    end
+  end
+
+  private
+
   def update_user_and_send_email
     if @user.set_password_reset
       send_reset_email
@@ -34,13 +43,5 @@ class PasswordResetter
     end
   end
 
-  def self.password_blank(user)
-    user.errors.add(:password, "can't be blank")
-    error_alert
-  end
-
-  def error_alert(user)
-    @flash.now[:alert] = user.errors
-  end
 
 end
