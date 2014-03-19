@@ -10,7 +10,7 @@ class SessionController < ApplicationController
       PasswordResetter.new(flash).handle_reset_request(user_params)
     elsif
       #authenticate password flow
-      UserAuthenticator.new(session, flash).authenticate_user(user_params)
+      log_user_in( UserAuthenticator.new(session, flash).authenticate_user(user_params) )
     end
     (redirect_to root_url and return) if flash.empty?
     render :new
@@ -18,7 +18,7 @@ class SessionController < ApplicationController
 
   def destroy
     # render text: "Log user out."
-    session[:user_id] = nil
+    log_user_out
     redirect_to login_url, notice: "You've successfully logged out."
   end
 

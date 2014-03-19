@@ -17,6 +17,16 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def log_user_in(user)
+    if user
+      session[:user_id] = user.id
+    end
+  end
+
+  def log_user_out
+    session[:user_id] = nil
+  end
+
   def make_action_mailer_user_request_host_and_protocol
     ActionMailer::Base.default_url_options[:protocol] = request.protocol
     ActionMailer::Base.default_url_options[:host] = request.host_with_port
