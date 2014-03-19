@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2014 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="glass" unicode="&#xe800;" d="m948 746q0-19-24-43l-353-353v-429h179q15 0 25-10t11-25t-11-25t-25-11h-500q-14 0-25 11t-11 25t11 25t25 10h179v429l-353 353q-24 24-24 43q0 13 10 21t21 9t24 3h786q13 0 24-3t21-9t10-21z" horiz-adv-x="1000" />
+<glyph glyph-name="wine" unicode="&#xe802;" d="m580 484q0-106-68-187t-171-98q0-1 1-2t1-3l0-209l51 0q21 0 37-15t15-36t-15-37t-37-16l-208 0q-21 0-37 16t-15 37t15 36t37 15l52 0l0 209q0 1 0 3t1 2q-103 18-171 98t-68 187q0 59 13 133t22 115t14 50q5 16 19 26t31 11l382 0q18 0 32-11t18-26q4-9 14-50t23-115t12-133z m-290-186q69 0 121 44t62 112l-365 0q10-67 61-112t121-44z m-185 209l370 0q-5 98-34 208l-302 0q-29-110-34-208z" horiz-adv-x="580" />
+<glyph glyph-name="beer" unicode="&#xe801;" d="m260 115q0-10-7-17t-18-8t-18 8t-8 17l0 313q0 10 8 18t18 8t18-8t7-18l0-313z m105 0q0-10-8-17t-18-8t-18 8t-8 17l0 313q0 10 8 18t18 8t18-8t8-18l0-313z m104 0q0-10-8-17t-18-8t-19 8t-8 17l0 313q0 10 8 18t19 8t18-8t8-18l0-313z m234 548q75 0 128-54t54-129l0-260q0-75-54-128t-128-54l-25 0q0-65-46-111t-111-46l-365 0q-65 0-110 46t-46 111l0 677q0 43 30 73t74 31l469 0q43 0 74-31t31-73l0-52l25 0z m-599 52l0-78q0-32 23-55t56-23q45 0 67 40l9 16l19-3q17-3 34 6t23 27l6 18l232 0l0 52l-469 0z m469-677l0 572l-197 0q-31-51-90-51q-40-52-103-52q-45 0-79 26l0-495q0-21 15-37t37-16l365 0q22 0 37 16t15 37z m208 182l0 260q0 33-23 56t-55 23l-78 0l0-417l78 0q32 0 55 23t23 55z" horiz-adv-x="885" />
+</font>
+</defs>
+</svg>
