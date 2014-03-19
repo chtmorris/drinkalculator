@@ -8,7 +8,7 @@ class SessionController < ApplicationController
     if params[:user][:password].blank?
       #password reset flow
       PasswordResetter.new(flash).handle_reset_request(user_params)
-    else
+    elsif
       #authenticate password flow
       UserAuthenticator.new(session, flash).authenticate_user(user_params)
     end

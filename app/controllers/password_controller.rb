@@ -14,10 +14,20 @@ class PasswordController < ApplicationController
       if params[:user][:password].blank?
 
         @user.errors.add(:password, "can't be blank")
-      elsif @user.update_attributes user_params
-        render text: "Success"
+        flash.now[:alert] = @user.errors
+        render :edit
+
+      elsif @user.reset_password( user_params )
+
+        UserNotifier.password_was_reset(@user).deliver
+        session[:user_id] = @user.id
+        redirect_to root_url, notice: "Your password has been successfully reset"
+
       else
-        render text: "Failure"
+
+        flash.now[:alert] = @user.errors
+        render :edit
+
       end
 
     # Otherwise show a message not found
@@ -30,7 +40,7 @@ class PasswordController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:password,:password_confirmation)
+    params.require(:user).permit(:password, :password_confirmation)
   end
 
 end
