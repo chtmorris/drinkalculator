@@ -17,14 +17,16 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def log_user_in(user)
+  def log_user_in(user, notice = nil)
     if user
       session[:user_id] = user.id
+      redirect_to root_url, notice: notice
     end
   end
 
   def log_user_out
     session[:user_id] = nil
+    redirect_to login_url, notice: "You've successfully logged out."
   end
 
   def make_action_mailer_user_request_host_and_protocol
