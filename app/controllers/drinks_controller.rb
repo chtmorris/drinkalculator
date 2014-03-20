@@ -5,7 +5,7 @@ class DrinksController < ApplicationController
       flash.now[:alert] = "No booze!"
       redirect_to root_url
     else
-      current_user.add_drinks(drink_params)
+      current_user.add_beer(drink_params)
       redirect_to results_url
     end
 

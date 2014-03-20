@@ -6,6 +6,7 @@ class User
 
   include Mongoid::Document
   include Mongoid::Timestamps
+  embeds_one :beer
 
   attr_accessor :password, :password_confirmation
 
@@ -59,20 +60,20 @@ class User
     end
   end
 
-  def add_drinks (params)
-    unless params[:beer].blank?
-      self.beer = self.beer + params[:beer].to_i
-      self.save
-    end
-    unless params[:wine].blank?
-      self.wine = self.wine + params[:wine].to_i
-      self.save
-    end
-    unless params[:cocktail].blank?
-      self.cocktail = self.cocktail + params[:cocktail].to_i
-      self.save
-    end
-  end
+  # def add_drinks (params)
+  #   unless params[:beer].blank?
+  #     self.beer = self.beer + params[:beer].to_i
+  #     self.save
+  #   end
+  #   unless params[:wine].blank?
+  #     self.wine = self.wine + params[:wine].to_i
+  #     self.save
+  #   end
+  #   unless params[:cocktail].blank?
+  #     self.cocktail = self.cocktail + params[:cocktail].to_i
+  #     self.save
+  #   end
+  # end
 
   protected
 
