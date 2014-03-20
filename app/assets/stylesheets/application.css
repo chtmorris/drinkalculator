@@ -76,6 +76,9 @@ legend {
   border-radius: 20px;
 }
 
+#icons {
+  margin-top: -100px;
+}
 
 /*FOOTER*/
 /* Wrapper for page content to push down footer */
