@@ -13,22 +13,22 @@
         .icon-glass
 
 
-    = form_for :user, url: login_url, html: { id: "loginform" } do |f|
+    = form_for :user, url: add_drinks_url, html: { id: "drinksform" } do |f|
       fieldset
         div class="row"
           form id="login-form" method="post" action="#" accept-charset="UTF-8" class="form-horizontal"
 
             .form-group
               div class="col-md-4"
-                = f.text_field :email, class: "form-control input-md", placeholder: "Beer", id: "user_email"
+                = f.text_field :beer, class: "form-control input-md", placeholder: "Beer", id: "beer"
 
             .form-group
               div class="col-md-4"
-                = f.text_field :email, class: "form-control input-md", placeholder: "Wine", id: "user_email"
+                = f.text_field :wine, class: "form-control input-md", placeholder: "Wine", id: "wine"
 
             .form-group
               div class="col-md-4"
-                = f.text_field :email, class: "form-control input-md", placeholder: "Cocktails", id: "user_email"
+                = f.text_field :cocktail, class: "form-control input-md", placeholder: "Cocktail", id: "cocktail"
 
             div class="form-group"
               div class="col-md-12"

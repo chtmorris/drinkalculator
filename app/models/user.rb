@@ -14,6 +14,9 @@ class User
   field :fish, type: String
   field :code, type: String
   field :expires_at, type: Time
+  field :beer, type: Integer
+  field :wine, type: Integer
+  field :cocktail, type: Integer
 
   before_save :set_random_password, :encrypt_password
   validates :email, presence: true, uniqueness: {case_sensitive: false}

@@ -6,6 +6,8 @@ Drinkalculator::Application.routes.draw do
   post    'login'   => 'session#create'
   delete  'logout'  => 'session#destroy'
 
+  post    'add_drinks'  =>  'drinks#add_drinks'
+
   # get     'logout'  => 'session#destroy'  #TODO: remove before deployment
 
   get 'privacy'     => 'site#privacy'
