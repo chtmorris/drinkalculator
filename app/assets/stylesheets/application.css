@@ -28,12 +28,26 @@ h1 {
   font-family: 'Revalia', cursive;
 }
 
+.white_background{
+  background: hsla(0, 0%, 100%, 0.9);
+  width: 1000px;
+}
+
+.welcome {
+  text-align: center;
+}
+
 .form-control {
     border: 1px solid #D6D6D6;
     border-radius: 0;
     box-shadow: none;
     height: 40px;
     padding: 6px 15px;
+    text-align: center;
+}
+
+.form-group{
+  margin-top: 15px;
 }
 
 .control-label {
@@ -77,6 +91,17 @@ legend {
 }
 
 #icons {
+  margin-top: -100px;
+  text-align: center;
+}
+
+.date {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 4em;
+}
+
+.drinks_input{
   margin-top: -100px;
 }
 

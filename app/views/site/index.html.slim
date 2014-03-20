@@ -1,7 +1,10 @@
-.main.container role="main"
+style html, body {background: url("http://www.nightlifemagazine.nl/wp-content/uploads/2014/01/cocktails-wallpaper-1440x960.jpg") no-repeat center center fixed; background-size:cover;}
+
+.main.container.white_background role="main"
   div class="row"
-    div class="col-md-4"
-      p Welcome #{@current_user.email}
+    div class="col-md-12"
+      .welcome
+        p Welcome #{@current_user.email}, what have you had to drink this fine week?
 
   div id="icons"
     .row
@@ -11,25 +14,28 @@
         .icon-wine
       .col-md-4
         .icon-glass
+      .col-md-12
+        .date
+          p Week 1
 
+    .drinks_input
+      = form_for :user, url: add_drinks_url, html: { id: "drinksform" } do |f|
+        fieldset
+          div class="row"
+            form id="login-form" method="post" action="#" accept-charset="UTF-8" class="form-horizontal"
 
-    = form_for :user, url: add_drinks_url, html: { id: "drinksform" } do |f|
-      fieldset
-        div class="row"
-          form id="login-form" method="post" action="#" accept-charset="UTF-8" class="form-horizontal"
+              .form-group
+                div class="col-md-4"
+                  = f.text_field :beer, class: "form-control input-md", placeholder: "Pints of beer"
 
-            .form-group
-              div class="col-md-4"
-                = f.text_field :beer, class: "form-control input-md", placeholder: "Pints of beer"
+              .form-group
+                div class="col-md-4"
+                  = f.text_field :wine, class: "form-control input-md", placeholder: "Glasses of wine"
 
-            .form-group
-              div class="col-md-4"
-                = f.text_field :wine, class: "form-control input-md", placeholder: "Glasses of wine"
+              .form-group
+                div class="col-md-4"
+                  = f.text_field :cocktail, class: "form-control input-md", placeholder: "Cocktails"
 
-            .form-group
-              div class="col-md-4"
-                = f.text_field :cocktail, class: "form-control input-md", placeholder: "Cocktails"
-
-            div class="form-group"
-              div class="col-md-12"
-                = f.submit "Add drinks", class: "btn btn-success col-md-12"
+              div class="form-group"
+                div class="col-md-12"
+                  = f.submit "Add drinks", class: "btn btn-success col-md-12"

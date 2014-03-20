@@ -1,12 +1,17 @@
 class DrinksController < ApplicationController
 
   def drinks_form
-    # if @user.save(drink_params)params[:user][:beer].blank?
-    if params[:user][:beer].blank? and params[:user][:wine].blank? and params[:user][:cocktail].blank?
+    if (params[:user][:beer].blank? and params[:user][:wine].blank? and params[:user][:cocktail].blank?)
       flash.now[:alert] = "No booze!"
+      redirect_to root_url
     else
-      User.add_drinks
+      current_user.add_drinks(drink_params)
+      redirect_to results_url
     end
+
+  end
+
+  def results
   end
 
   private
