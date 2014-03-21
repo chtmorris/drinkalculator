@@ -66,10 +66,12 @@ class User
       self.beer.add_beer params[:beer]
     end
     unless params[:wine].blank?
+      self.wine = 0
       self.wine = self.wine + params[:wine].to_i
       self.save
     end
     unless params[:cocktail].blank?
+      self.cocktail = 0
       self.cocktail = self.cocktail + params[:cocktail].to_i
       self.save
     end

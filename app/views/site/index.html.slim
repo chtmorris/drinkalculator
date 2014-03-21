@@ -4,7 +4,7 @@ style html, body {background: url("http://www.nightlifemagazine.nl/wp-content/up
   div class="row"
     div class="col-md-12"
       .welcome
-        p Welcome #{@current_user.email}, what have you had to drink this fine week?
+        p Welcome #{@current_user.email}, what have you had to drink this fine day?
 
   div id="icons"
     .row
@@ -16,7 +16,7 @@ style html, body {background: url("http://www.nightlifemagazine.nl/wp-content/up
         .icon-glass
       .col-md-12
         .date
-          p Week 1
+          = Time.now.strftime("%d %B %Y")
 
     .drinks_input
       = form_for :user, url: add_drinks_url, html: { id: "drinksform" } do |f|
