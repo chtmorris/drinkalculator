@@ -10,10 +10,10 @@ class Beer
   embedded_in :user
 
   def add_beer (params)
-    unless params[:beer].blank?
-      self.wk1 = self.wk1 + params[:beer].to_i
+    # unless params[:beer].blank?
+      self.wk1 = params.to_i + self.wk1.to_i
       self.save
-    end
+    # end
   end
 
 end

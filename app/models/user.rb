@@ -6,7 +6,7 @@ class User
 
   include Mongoid::Document
   include Mongoid::Timestamps
-  embeds_one :beer
+
 
   attr_accessor :password, :password_confirmation
 
@@ -15,7 +15,8 @@ class User
   field :fish, type: String
   field :code, type: String
   field :expires_at, type: Time
-  field :beer, type: Integer
+  # field :beer, type: Integer
+  embeds_one :beer
   field :wine, type: Integer
   field :cocktail, type: Integer
 
@@ -62,9 +63,7 @@ class User
 
   def add_drinks (params)
     unless params[:beer].blank?
-      add_beer
-      # self.beer = self.beer + params[:beer].to_i
-      # self.save
+      self.beer.add_beer params[:beer]
     end
     unless params[:wine].blank?
       self.wine = self.wine + params[:wine].to_i
