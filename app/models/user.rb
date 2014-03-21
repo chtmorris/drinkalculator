@@ -15,10 +15,8 @@ class User
   field :fish, type: String
   field :code, type: String
   field :expires_at, type: Time
-  field :cocktail, type: Integer
 
-  embeds_one :wine
-  embeds_one :beer
+  embeds_many :binge
 
   before_save :set_random_password, :encrypt_password
   validates :email, presence: true, uniqueness: {case_sensitive: false}
@@ -63,15 +61,16 @@ class User
 
   def add_drinks (params)
     unless params[:beer].blank?
-      self.beer.add_beer params[:beer]
+      # binding.pry
+      self.binge.new.add_beer params[:beer]
     end
     unless params[:wine].blank?
-      self.wine.add_wine params[:wine]
+      self.binge.new.add_wine params[:wine]
     end
     unless params[:cocktail].blank?
-      self.cocktail = self.cocktail + params[:cocktail].to_i
-      self.save
+      self.binge.new.add_wine params[:cocktail]
     end
+    self.save
   end
 
   protected
