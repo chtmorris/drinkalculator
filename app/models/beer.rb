@@ -6,19 +6,14 @@ class Beer
   field :wk3, type: Integer
   field :wk4, type: Integer
   field :wk5, type: Integer
+  field input_time, type: Integer
 
   embedded_in :user
 
   def add_beer (params)
-
-    if self.wk1 < 1
-      self.wk1 = 0
-      self.wk1 = params.to_i
-      self.save
-    elsif self.wk1 > 0
-      self.wk2 = params.to_i
-      self.save
-    end
+    input_time = Time.now.strftime("%m/%d/%Y")
+    self.write_attribute(input_time, params.to_i)
+    self.save
   end
 
 end
