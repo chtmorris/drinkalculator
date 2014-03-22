@@ -60,16 +60,8 @@ class User
   end
 
   def add_drinks (params)
-    unless params[:beer].blank?
-      # binding.pry
-      self.binge.new.add_beer params[:beer]
-    end
-    unless params[:wine].blank?
-      self.binge.new.add_wine params[:wine]
-    end
-    unless params[:cocktail].blank?
-      self.binge.new.add_wine params[:cocktail]
-    end
+    # binding.pry
+    self.binge.create(:beer => params[:beer], :wine => params[:wine], :cocktail => params[:cocktail])
     self.save
   end
 
