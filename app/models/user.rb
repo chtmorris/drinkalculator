@@ -61,7 +61,7 @@ class User
 
   def add_drinks (params)
     # binding.pry
-    self.binge.create(:beer => params[:beer], :wine => params[:wine], :cocktail => params[:cocktail])
+    self.binge.create(:beer => params[:beer], :wine => params[:wine], :cocktail => params[:cocktail], :date => Time.now.strftime("%m/%d/%Y"))
     self.save
   end
 
