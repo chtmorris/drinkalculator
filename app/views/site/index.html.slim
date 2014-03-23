@@ -4,7 +4,7 @@ style html, body {background: url("http://wallpapersus.com/wp-content/uploads/20
   div class="row"
     div class="col-md-12"
       .welcome
-        p Welcome #{@current_user.email}, what have you had to drink this fine day?
+        p Hey there #{@current_user.email}, what have you had to drink this fine day?
 
   div id="icons"
     .row
@@ -14,16 +14,22 @@ style html, body {background: url("http://wallpapersus.com/wp-content/uploads/20
         .icon-wine
       .col-md-4
         .icon-glass
-      .col-md-12
-        .date
-          input type="text" data-behaviour='datepicker' placeholder="#{Time.now.strftime("%d %B %Y")}"
+      / .col-md-12
+      /   .date
+      /     input type="text" data-behaviour='datepicker' placeholder="#{Time.now.strftime("%d %B %Y")}"
 
 
     .drinks_input
       = form_for :user, url: add_drinks_url, html: { id: "drinksform" } do |f|
         fieldset
           div class="row"
+
             form id="login-form" method="post" action="#" accept-charset="UTF-8" class="form-horizontal"
+
+              .form-group
+                .col-md-6.col-md-offset-3
+                  .date
+                    = f.text_field :date, class: "form-control input-md", value: "#{Time.now.strftime("%m/%d/%Y")}"
 
               .form-group
                 div class="col-md-4"
