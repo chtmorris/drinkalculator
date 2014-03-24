@@ -3,6 +3,7 @@ class RegisterController < ApplicationController
 BLANK_FIELDS = "You have left one of the registration fields blank. Please fill in all fields and re-submit."
 ALREADY_REGISTERED = "This e-mail address is already registered. You can reset your password from the home page if you have forgotten it."
 NON_MATCHING_PASSWORDS = "Your passwords do not match. Please try again."
+WELCOME = "Welcome to Drinkalculator"
 
   def new_user
   end
@@ -15,12 +16,25 @@ NON_MATCHING_PASSWORDS = "Your passwords do not match. Please try again."
     elsif (params[:user][:password] != params[:user][:password_confirmation])
       flash.now[:alert] = NON_MATCHING_PASSWORDS
     else
-      #authenticate password flow
-      return if log_user_in( UserAuthenticator.new(session, flash).authenticate_user(user_params) )
-    end
-    # (redirect_to root_url and return) if flash.empty?
-    render :new_user
+      #register new user
+      @user = User.new(user_params)
+      @user.save
+      return if log_user_in( @user, WELCOME )
 
+    end
+    # (redirect_to new_user and return) unless registration occurs?
+    if current_user
+      redirect_to root_url
+    else
+      render :new_user
+    end
+
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 
 end
