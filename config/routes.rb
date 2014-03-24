@@ -6,6 +6,9 @@ Drinkalculator::Application.routes.draw do
   post    'login'   => 'session#create'
   delete  'logout'  => 'session#destroy'
 
+  get     'register'    =>  'register#new_user'
+  post    'register'    =>  'register#registration'
+
   post    'add_drinks'  =>  'drinks#drinks_form'
   get     'results'     =>  'drinks#results'
 
