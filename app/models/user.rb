@@ -59,14 +59,6 @@ class User
     end
   end
 
-  # def add_drinks (params)
-  #   # binding.pry
-  #   # @beer == if params[:beer].blank? then 0 else params[:beer] end
-  #   self.binges.create(params)
-  #   self.save
-  #   # Time.now.strftime("%m/%d/%Y")
-  # end
-
   protected
 
   def set_random_password

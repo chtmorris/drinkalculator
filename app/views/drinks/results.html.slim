@@ -19,32 +19,36 @@
               td
                 = drink.date
               td
-                = if drink.beer == nil then "-" else drink.beer end
+                = drink.beer.to_i
               td
-                = if drink.wine == nil then "-" else drink.wine end
+                = drink.wine.to_i
               td
-                = if drink.cocktail == nil then "-" else drink.cocktail end
+                = drink.cocktail.to_i
             tr.active
               td Cost
               td
-                = if drink.beer == nil then "-" else drink.beer * 50 end
+                = drink.beer.to_i * 50
               td
-                = if drink.wine == nil then "-" else drink.wine * 50 end
+                = drink.wine.to_i * 60
               td
-                = if drink.cocktail == nil then "-" else drink.cocktail * 50 end
+                = drink.cocktail.to_i * 90
             tr.active
               td Units
               td
-                = if drink.beer == nil then "-" else drink.beer * 2 end
+                = drink.beer.to_i * 2
               td
-                = if drink.wine == nil then "-" else drink.wine * 3 end
+                = drink.wine.to_i * 2
               td
-                = if drink.cocktail == nil then "-" else drink.cocktail * 3 end
+                = drink.wine.to_i * 3
           tr.danger
-            td Total
-            td xx
-            td xx
-            td xx
+            / td Total
+            / td
+            / - for drink in current_user.binge
+            /   = total_beer = 0
+            /   = total_beer + drink.beer.to_i
+            /   = total_beer
+            / td xx
+            / td xx
 
 
 
