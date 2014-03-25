@@ -6,7 +6,7 @@
 
   div id="icons"
     .row
-      table class="table table-striped"
+      table class="table table-hover"
         thead
           tr
             th Date
@@ -15,31 +15,37 @@
             th Cocktails
         tbody
           - for drink in current_user.binge
-            tr
+            tr.info
               td
                 = drink.date
               td
-                = drink.beer
+                = if drink.beer == nil then "-" else drink.beer end
               td
-                = drink.wine
+                = if drink.wine == nil then "-" else drink.wine end
               td
-                = drink.cocktail
-            tr
-              td COST
+                = if drink.cocktail == nil then "-" else drink.cocktail end
+            tr.active
+              td Cost
               td
-                = drink.beer * 50
+                = if drink.beer == nil then "-" else drink.beer * 50 end
               td
-                = drink.wine * 70
+                = if drink.wine == nil then "-" else drink.wine * 50 end
               td
-                = drink.cocktail * 100
-            tr
+                = if drink.cocktail == nil then "-" else drink.cocktail * 50 end
+            tr.active
               td Units
               td
-                = drink.beer * 2.2
+                = if drink.beer == nil then "-" else drink.beer * 2 end
               td
-                = drink.wine * 4
+                = if drink.wine == nil then "-" else drink.wine * 3 end
               td
-                = drink.cocktail * 4
+                = if drink.cocktail == nil then "-" else drink.cocktail * 3 end
+          tr.danger
+            td Total
+            td xx
+            td xx
+            td xx
+
 
 
 

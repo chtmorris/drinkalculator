@@ -104,7 +104,12 @@ legend {
 .date {
   text-align: center;
   margin-bottom: 20px;
-  font-size: 3em;
+  font-size: 1.5em;
+}
+
+.date p {
+  text-align: left;
+  margin-bottom: -5px;
 }
 
 input {
@@ -117,6 +122,10 @@ input {
 
 .table{
   text-align: left;
+}
+
+tr.active {
+  font-style: italic;
 }
 
 
