@@ -6,14 +6,18 @@
 
   div id="icons"
     .row
-      .col-md-4
-        .icon-beer
-        p Week 1 - #{current_user.binge.distinct(:beer)}
+      table class="table table-striped"
+        thead
+          tr
+            th Date
+            th Beer
+            th Wine
+            th Cocktails
+        tbody
+          tr
+            / td #{current_user.binge.distinct(:date)}
+            td #{current_user.binge.distinct(:beer)}
+            td #{current_user.binge.distinct(:wine)}
+            td #{current_user.binge.distinct(:cocktail)}
 
-      .col-md-4
-        .icon-wine
-        / p #{current_user.wine}
-        / p Week 2 - #{current_user.wine["03/21/2014"]}
-      .col-md-4
-        .icon-glass
-        p
+
