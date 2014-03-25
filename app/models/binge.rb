@@ -8,5 +8,10 @@ class Binge
 
   embedded_in :user
 
+  def testy
+    console.log "yes"
+
+  end
+
 
 end

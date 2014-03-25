@@ -14,10 +14,25 @@
             th Wine
             th Cocktails
         tbody
-          tr
-            / td #{current_user.binge.distinct(:date)}
-            td #{current_user.binge.distinct(:beer)}
-            td #{current_user.binge.distinct(:wine)}
-            td #{current_user.binge.distinct(:cocktail)}
+          - for drink in current_user.binge
+            tr
+              td
+                = drink.date
+              td
+                = drink.beer
+              td
+                = drink.wine
+              td
+                = drink.cocktail
+            / tr
+            /   td
+            /     = drink.date
+            /   td
+            /     = drink.beer
+            /   td
+            /     = drink.wine
+            /   td
+            /     = drink.cocktail
+
 
 
