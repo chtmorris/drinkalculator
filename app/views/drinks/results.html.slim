@@ -24,15 +24,22 @@
                 = drink.wine
               td
                 = drink.cocktail
-            / tr
-            /   td
-            /     = drink.date
-            /   td
-            /     = drink.beer
-            /   td
-            /     = drink.wine
-            /   td
-            /     = drink.cocktail
+            tr
+              td COST
+              td
+                = drink.beer * 50
+              td
+                = drink.wine * 70
+              td
+                = drink.cocktail * 100
+            tr
+              td Units
+              td
+                = drink.beer * 2.2
+              td
+                = drink.wine * 4
+              td
+                = drink.cocktail * 4
 
 
 
