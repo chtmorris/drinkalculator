@@ -15,7 +15,7 @@ style html, body {background: url("http://farm9.staticflickr.com/8204/8237429748
             th Beer
             th Wine
             th Cocktails
-        tbody
+        tbody id="drinks_table"
           - for drink in current_user.binge
             tr.info.collapsey
               td
@@ -78,10 +78,10 @@ javascript:
   $(document).ready(function(){
     var trip = new Trip([
      {
-         sel : $('.info'),
-         position : 'screen-sw',
+         sel : $('#drinks_table'),
+         position : 'e',
          content : 'Click on each row to reveal more data',
-         delay : 3000,
+         delay : 5000,
      }], {
 
      });
