@@ -25,13 +25,13 @@
               td
                 = drink.cocktail.to_i
             tr.active.den
-              td Cost
+              td Cost (HKD)
               td
-                = j = drink.beer.to_i * 50
+                = cost_beer = drink.beer.to_i * 50
               td
-                = drink.wine.to_i * 60
+                = cost_wine = drink.wine.to_i * 60
               td
-                = drink.cocktail.to_i * 90
+                = cost_cocktail = drink.cocktail.to_i * 90
             tr.active.den
               td Units
               td
@@ -45,6 +45,17 @@
             td #{@total_beer}
             td #{@total_wine}
             td #{@total_cocktail}
+          tr.active
+            td Cost total
+            td $#{@total_beer_cost} HK
+            td $#{@total_wine_cost} HK
+            td $#{@total_cocktail_cost} HK
+          tr.active
+            td Units total
+            td #{@total_beer_units}
+            td #{@total_wine_units}
+            td #{@total_cocktail_units}
+
 
 javascript:
   $(document).ready(function(){
