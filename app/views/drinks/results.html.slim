@@ -15,7 +15,7 @@
             th Cocktails
         tbody
           - for drink in current_user.binge
-            tr.info
+            tr.info.collapsey
               td
                 = drink.date
               td
@@ -24,15 +24,15 @@
                 = drink.wine.to_i
               td
                 = drink.cocktail.to_i
-            tr.active
+            tr.active.den
               td Cost
               td
-                = drink.beer.to_i * 50
+                = j = drink.beer.to_i * 50
               td
                 = drink.wine.to_i * 60
               td
                 = drink.cocktail.to_i * 90
-            tr.active
+            tr.active.den
               td Units
               td
                 = drink.beer.to_i * 2
@@ -40,16 +40,17 @@
                 = drink.wine.to_i * 2
               td
                 = drink.wine.to_i * 3
-          tr.danger
-            / td Total
-            / td
-            / - for drink in current_user.binge
-            /   = total_beer = 0
-            /   = total_beer + drink.beer.to_i
-            /   = total_beer
-            / td xx
-            / td xx
+          tr.danger.collapsey
+            td Total
+            td #{@total_beer}
+            td #{@total_wine}
+            td #{@total_cocktail}
 
+javascript:
+  $(document).ready(function(){
+    $(".collapsey").nextUntil('tr.collapsey').slideToggle(100).promise()
+  });
 
-
-
+  $('.collapsey').click(function () {
+    $(this).nextUntil('tr.collapsey').slideToggle(100).promise()
+  });

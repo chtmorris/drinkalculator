@@ -16,6 +16,24 @@ class DrinksController < ApplicationController
   end
 
   def results
+    beers = 0
+    for drink in current_user.binge
+      beers = beers + drink.beer
+      @total_beer = beers
+    end
+
+    wines = 0
+    for drink in current_user.binge
+      wines = wines + drink.wine
+      @total_wine = wines
+    end
+
+    cocktails = 0
+    for drink in current_user.binge
+      cocktails = cocktails + drink.cocktail
+      @total_cocktail = cocktails
+    end
+
   end
 
   private
@@ -24,5 +42,6 @@ class DrinksController < ApplicationController
     params.require(:user).permit(:beer, :wine, :cocktail, :date)
 
   end
+  # sum(drink.beer.to_i)
 
 end

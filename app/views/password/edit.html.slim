@@ -1,28 +1,54 @@
-style html, body {background: url("http://www.topwallpaperphoto.com/wp-content/uploads/2013/09/architecture-bar-beach.jpg") no-repeat center center fixed; background-size:cover; }
+/ style html, body {background: url("http://www.topwallpaperphoto.com/wp-content/uploads/2013/09/architecture-bar-beach.jpg") no-repeat center center fixed; background-size:cover; }
 
-= form_for @user, url: reset_url(@user.code), method: :patch, html: { id: "resetform"} do |f|
-
-  fieldset
-    main role="main" class="container"
-      div class="row"
-        div class="col-md-4 col-md-offset-4"
-          form id="login-form" method="post" action="#" accept-charset="UTF-8" class="form-horizontal"
-            legend class="page-header"
-              h2 Password reset
-
-            / legend Choose a new password
+.reset-form.row
+  .col-lg-8.col-lg-offset-2
+    = form_for :user, url: reset_url(@user.code), method: :patch, html: { role: "form" } do |f|
+      fieldset
+        legend Please choose a new password for "#{@user.email}"
+        .row
+          .col-lg-6
             .form-group
-              / = f.label :password, class: "sr-only"
-              .col-md-12
-                = f.password_field :password, class: "form-control", placeholder: "New Password"
-
+              = f.label :password
+              = f.password_field :password, class: "form-control showable-password", placeholder: "Password"
             .form-group
-              / = f.label :password_confirmation, class: "sr-only"
-              .col-md-12
-                = f.password_field :password_confirmation, class: "form-control", placeholder: "Type it again"
-
+              = f.label :password_confirmation
+              = f.password_field :password_confirmation, class: "form-control showable-password", placeholder: "Type it again"
             .form-group
-              .col-md-12
-                = f.submit "Update Password", class: "btn btn-success col-md-12"
+              => f.submit "Save", class: "btn btn-success"
+              button#show-password-button.btn.btn-warning data-state="show" Show Passwords
+          .col-lg-6
+            p#pw-quality Password too weak!
+            #pw-meter.strength-meter.progress.progress-striped
+              #strength-meter.meter.progress-bar role="progressbar" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0"
+            .crack-div
+              strong Time to crack:
+              span#time-to-crack instant
+            #match-div
 
+script src="/js/zxcvbn-async.js"
+
+/ = form_for @user, url: reset_url(@user.code), method: :patch, html: { id: "resetform"} do |f|
+
+/   fieldset
+/     main role="main" class="container"
+/       div class="row"
+/         div class="col-md-4 col-md-offset-4"
+/           form id="login-form" method="post" action="#" accept-charset="UTF-8" class="form-horizontal"
+/             legend class="page-header"
+/               h2 Password reset
+
+/             / legend Choose a new password
+/             .form-group
+/               / = f.label :password, class: "sr-only"
+/               .col-md-12
+/                 = f.password_field :password, class: "form-control", placeholder: "New Password"
+
+/             .form-group
+/               / = f.label :password_confirmation, class: "sr-only"
+/               .col-md-12
+/                 = f.password_field :password_confirmation, class: "form-control", placeholder: "Type it again"
+
+/             .form-group
+/               .col-md-12
+/                 = f.submit "Update Password", class: "btn btn-success col-md-12"
 
