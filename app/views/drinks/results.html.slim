@@ -1,13 +1,12 @@
 style html, body {background: url("http://farm9.staticflickr.com/8204/8237429748_216c68cda0_b.jpg") no-repeat center center fixed; background-size:cover;}
 
-
-
 .main.container role="main"
   div class="row"
     div class="col-md-4"
 
   div id="icons"
-    .row.blur
+    / .row.blur.hide
+    .row
       table class="table table-hover"
         thead
           tr
@@ -58,8 +57,37 @@ style html, body {background: url("http://farm9.staticflickr.com/8204/8237429748
             td #{@total_wine_units}
             td #{@total_cocktail_units}
 
-    p.click_notice.deepshadow Click to take those beer googles off!
+    div id="myfirstchart" style="height: 250px;"
 
+    p.click_notice.deepshadow Click here to take off those beer googles!
+
+script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"
+script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"
+script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"
+
+
+javascript:
+  new Morris.Bar({
+  // ID of the element in which to draw the chart.
+  element: 'myfirstchart',
+  // Chart data records -- each entry in this array corresponds to a point on
+  // the chart.
+  data: [
+    { year: 'Total beers', value: #{@total_beer} },
+    { year: 'Total wine', value: #{@total_wine} },
+    { year: 'Total cocktails', value: #{@total_cocktail} },
+  ],
+  // The name of the data record attribute that contains x-values.
+  xkey: 'year',
+  // A list of names of data record attributes that contain y-values.
+  ykeys: ['value'],
+  // Labels for the ykeys -- will be displayed when you hover over the
+  // chart.
+  labels: ['Value']
+  });
+
+
+/ ------- FOR TABLE -------
 javascript:
   $(document).ready(function(){
     $(".collapsey").nextUntil('tr.collapsey').slideToggle(100).promise()
@@ -71,9 +99,11 @@ javascript:
   });
   $("html").click(function(){
     $(".row").removeClass("blur");
+    $(".row").removeClass("hide");
     $(".click_notice").addClass("blur");
   });
 
+/ ------- FOR TRIP EXPLANATIONS -------
 javascript:
   $(document).ready(function(){
     var trip = new Trip([
@@ -81,12 +111,13 @@ javascript:
          sel : $('#drinks_table'),
          position : 'e',
          content : 'Click on each row to reveal more data',
-         delay : 5000,
+         delay : 4000,
      }], {
 
      });
 
-    $("html").on("click", function() {
-    trip.start();
+    $("p").on("click", function() {
+      trip.start();
+
     });
     });
