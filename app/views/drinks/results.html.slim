@@ -1,7 +1,7 @@
 style html, body {background: url("http://farm9.staticflickr.com/8204/8237429748_216c68cda0_b.jpg") no-repeat center center fixed; background-size:cover;}
 
 .main.container.white_background role="main"
-  .row.graph-padding.blur
+  .row.graph-padding
     div id="totalschart" class="" style="height: 300px; font-size: 18px;"
     div id="costchart" class="" style="height: 300px; font-size: 18px;"
     div id="unitchart" class="" style="height: 300px; font-size: 18px;"
@@ -13,7 +13,7 @@ style html, body {background: url("http://farm9.staticflickr.com/8204/8237429748
     div class="col-md-4"
 
   div id="icons"
-    .row.table-padding.blur
+    .row.table-padding
       table class="table table-hover"
         thead
           tr
@@ -69,34 +69,8 @@ style html, body {background: url("http://farm9.staticflickr.com/8204/8237429748
 script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"
 script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"
 script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"
+= javascript_include_tag "results"
 
-
-/ ------- FOR TRIP EXPLANATIONS -------
-javascript:
-  $(document).ready(function(){
-    var trip = new Trip([
-     {
-         sel : $('#myfirstchart'),
-         position : 'n',
-         content : 'Click to take off those beer googles!',
-         animation: 'rotateInUpRight',
-         delay : 5000,
-     },
-     {
-         sel : $('#drinks_table'),
-         position : 'e',
-         content : 'Click on each row to reveal more data',
-         delay : 4000,
-     }], {
-     });
-
-    $(document).ready(function() {
-      trip.start();
-    });
-  });
-
-
-/ ------- GRHAPS -------
 
 javascript:
   new Morris.Bar({
@@ -117,7 +91,8 @@ javascript:
     // chart.
     labels: ['Value'],
     barColors: ['#999'],
-    hideHover: true
+    hideHover: true,
+    gridTextSize: 16
   });
 
   new Morris.Bar({
@@ -146,40 +121,6 @@ javascript:
     labels: ['Value'],
     barColors: ['#656566'],
     hideHover: true
-  });
-
-  $("#totals_button").click(function(){
-    $("#totalschart").removeClass("hide");
-    $("#costchart").addClass("hide");
-    $("#unitchart").addClass("hide");
-  });
-
-  $("#cost_button").click(function(){
-    $("#totalschart").addClass("hide");
-    $("#costchart").removeClass("hide");
-    $("#unitchart").addClass("hide");
-  });
-
-  $("#unit_button").click(function(){
-    $("#totalschart").addClass("hide");
-    $("#costchart").addClass("hide");
-    $("#unitchart").removeClass("hide");
-  });
-
-/ ------- FOR TABLE -------
-javascript:
-  $(document).ready(function(){
-    $(".collapsey").nextUntil('tr.collapsey').slideToggle(100).promise()
-  });
-
-  $('.collapsey').click(function () {
-    $(this).nextUntil('tr.collapsey').slideToggle(100).promise()
-    $(".click_notice").addClass("hide");
-  });
-  $("html").click(function(){
-    $(".row").removeClass("blur");
-    $(".row").removeClass("hide");
-    $(".click_notice").addClass("blur");
   });
 
 javascript:

@@ -18,19 +18,19 @@ class DrinksController < ApplicationController
   def results
     beers = 0
     for drink in current_user.binge
-      beers = beers + drink.beer
+      beers = beers + drink.beer.to_i
       @total_beer = beers
     end
 
     wines = 0
     for drink in current_user.binge
-      wines = wines + drink.wine
+      wines = wines + drink.wine.to_i
       @total_wine = wines
     end
 
     cocktails = 0
     for drink in current_user.binge
-      cocktails = cocktails + drink.cocktail
+      cocktails = cocktails + drink.cocktail.to_i
       @total_cocktail = cocktails
     end
 
