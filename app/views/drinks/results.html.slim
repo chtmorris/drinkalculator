@@ -5,9 +5,10 @@ style html, body {background: url("http://farm9.staticflickr.com/8204/8237429748
     div id="totalschart" class="" style="height: 300px; font-size: 18px;"
     div id="costchart" class="" style="height: 300px; font-size: 18px;"
     div id="unitchart" class="" style="height: 300px; font-size: 18px;"
-    .btn.btn-info.col-md-3.button-padding id="totals_button" Show totals
-    .btn.btn-info.col-md-3.button-padding id="cost_button" Show costs
-    .btn.btn-info.col-md-3.button-padding id="unit_button" Show units
+    .center-row
+      .btn.btn-info.col-md-4.button-padding id="totals_button" Show totals
+      .btn.btn-info.col-md-4.button-padding id="cost_button" Show costs
+      .btn.btn-info.col-md-4.button-padding id="unit_button" Show units
 
     div class="col-md-4"
 
@@ -115,7 +116,7 @@ javascript:
     // Labels for the ykeys -- will be displayed when you hover over the
     // chart.
     labels: ['Value'],
-    barColors: ['#d28c8c'],
+    barColors: ['#999'],
     hideHover: true
   });
 
@@ -129,7 +130,7 @@ javascript:
     xkey: 'year',
     ykeys: ['value'],
     labels: ['Value'],
-    barColors: ['#d28c8c'],
+    barColors: ['#808080'],
     hideHover: true
   });
 
@@ -143,7 +144,7 @@ javascript:
     xkey: 'year',
     ykeys: ['value'],
     labels: ['Value'],
-    barColors: ['#d28c8c'],
+    barColors: ['#656566'],
     hideHover: true
   });
 

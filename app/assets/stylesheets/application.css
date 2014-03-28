@@ -49,9 +49,27 @@ h1 {
 }
 
 .button-padding{
-  margin: 0 20px 0 20px;
+  margin: 0 0px 0 0px;
+  position: center;
+}
+
+#totals_button{
+  background-color: #999;
+}
+
+#cost_button{
+  background-color: #808080;
+}
+
+#unit_button{
+  background-color: #656566;
+}
+
+.center-row{
   text-align: center;
 }
+
+
 
 .deepshadow {
     color: #e0dfdc;
@@ -126,6 +144,7 @@ h1 {
 
 .graph-padding {
     padding: 20px 50px 0px 50px;
+    text-align: center;
 }
 
 #myfirstchart {
