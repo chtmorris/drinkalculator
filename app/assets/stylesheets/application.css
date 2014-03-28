@@ -44,6 +44,13 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   text-rendering: optimizeLegibility;
+  position: relative;
+  margin: 0 auto;
+}
+
+.button-padding{
+  margin: 0 20px 0 20px;
+  text-align: center;
 }
 
 .deepshadow {
@@ -105,9 +112,28 @@ h1 {
   font-weight: normal;
 }
 
-.row {
+.container-padding {
     padding: 20px 50px 20px 50px;
     margin: 100px 100px 100px 100px;
+}
+
+/*---- Results page ----*/
+
+.table-padding {
+    padding: 50px 50px 50px 50px;
+    margin-top: 70px;
+}
+
+.graph-padding {
+    padding: 20px 50px 0px 50px;
+}
+
+#myfirstchart {
+  font-size: 18px;
+}
+
+.login-push{
+  margin-top: 100px;
 }
 
 .page-header {
@@ -273,7 +299,7 @@ $height-footer: 40px;
   height: auto !important;
   height: 100%;
   /* Negative indent footer by it's height */
-  margin: 0 auto -30px;
+  margin: 0 auto -40px;
 }
 
 /* Lastly, apply responsive CSS fixes as necessary */

@@ -1,13 +1,13 @@
 style html, body {background: url("http://wallpapersus.com/wp-content/uploads/2012/11/Cocktails-Drinks.jpg") no-repeat center center fixed; background-size:cover;}
 
 .main.container.white_background role="main"
-  div class="row"
+  .row.container-padding
     div class="col-md-12"
       .welcome
         p Hey there #{@current_user.email}, what have you had to drink this fine day?
 
   div id="icons"
-    .row
+    .row.container-padding
       .col-md-4
         .icon-beer
       .col-md-4
@@ -19,7 +19,7 @@ style html, body {background: url("http://wallpapersus.com/wp-content/uploads/20
     .drinks_input
       = form_for :user, url: add_drinks_url, html: { id: "drinksform" } do |f|
         fieldset
-          div class="row"
+          .row.container-padding
 
             form id="login-form" method="post" action="#" accept-charset="UTF-8" class="form-horizontal"
 

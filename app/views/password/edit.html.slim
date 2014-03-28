@@ -3,9 +3,9 @@
 .reset-form.row
   .col-lg-8.col-lg-offset-2
     = form_for :user, url: reset_url(@user.code), method: :patch, html: { role: "form" } do |f|
-      fieldset
+      fieldset.login-push
         legend Please choose a new password for "#{@user.email}"
-        .row
+        .row.login-push
           .col-lg-6
             .form-group
               = f.label :password

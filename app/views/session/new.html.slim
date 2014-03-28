@@ -4,7 +4,7 @@ style html, body {background: url("http://www.sevva.hk/images/about/terrace/terr
 = form_for :user, url: login_url, html: { id: "loginform" } do |f|
   fieldset
     main role="main" class="container"
-      div class="row"
+      .row.login-push
         div class="col-md-4 col-md-offset-4"
           form id="login-form" method="post" action="#" accept-charset="UTF-8" class="form-horizontal"
             legend class="page-header"

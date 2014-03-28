@@ -1,13 +1,18 @@
 style html, body {background: url("http://farm9.staticflickr.com/8204/8237429748_216c68cda0_b.jpg") no-repeat center center fixed; background-size:cover;}
 
-.main.container role="main"
-  div class="row"
-  div id="myfirstchart" style="height: 250px;"
+.main.container.white_background role="main"
+  .row.graph-padding.blur
+    div id="totalschart" class="" style="height: 300px; font-size: 18px;"
+    div id="costchart" class="" style="height: 300px; font-size: 18px;"
+    div id="unitchart" class="" style="height: 300px; font-size: 18px;"
+    .btn.btn-info.col-md-3.button-padding id="totals_button" Show totals
+    .btn.btn-info.col-md-3.button-padding id="cost_button" Show costs
+    .btn.btn-info.col-md-3.button-padding id="unit_button" Show units
+
     div class="col-md-4"
 
   div id="icons"
-    / .row.blur.hide
-    .row
+    .row.table-padding.blur
       table class="table table-hover"
         thead
           tr
@@ -58,33 +63,107 @@ style html, body {background: url("http://farm9.staticflickr.com/8204/8237429748
             td #{@total_wine_units}
             td #{@total_cocktail_units}
 
-    p.click_notice.deepshadow Click here to take off those beer googles!
+    / p.click_notice.deepshadow Click to take off those beer googles!
 
 script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"
 script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"
 script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"
 
 
+/ ------- FOR TRIP EXPLANATIONS -------
 javascript:
-  new Morris.Bar({
-  // ID of the element in which to draw the chart.
-  element: 'myfirstchart',
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
-  data: [
-    { year: 'Total beers', value: #{@total_beer} },
-    { year: 'Total wine', value: #{@total_wine} },
-    { year: 'Total cocktails', value: #{@total_cocktail} },
-  ],
-  // The name of the data record attribute that contains x-values.
-  xkey: 'year',
-  // A list of names of data record attributes that contain y-values.
-  ykeys: ['value'],
-  // Labels for the ykeys -- will be displayed when you hover over the
-  // chart.
-  labels: ['Value']
+  $(document).ready(function(){
+    var trip = new Trip([
+     {
+         sel : $('#myfirstchart'),
+         position : 'n',
+         content : 'Click to take off those beer googles!',
+         animation: 'rotateInUpRight',
+         delay : 5000,
+     },
+     {
+         sel : $('#drinks_table'),
+         position : 'e',
+         content : 'Click on each row to reveal more data',
+         delay : 4000,
+     }], {
+     });
+
+    $(document).ready(function() {
+      trip.start();
+    });
   });
 
+
+/ ------- GRHAPS -------
+
+javascript:
+  new Morris.Bar({
+    // ID of the element in which to draw the chart.
+    element: 'totalschart',
+    // Chart data records -- each entry in this array corresponds to a point on
+    // the chart.
+    data: [
+      { year: 'Total beers', value: #{@total_beer} },
+      { year: 'Total wine', value: #{@total_wine} },
+      { year: 'Total cocktails', value: #{@total_cocktail} },
+    ],
+    // The name of the data record attribute that contains x-values.
+    xkey: 'year',
+    // A list of names of data record attributes that contain y-values.
+    ykeys: ['value'],
+    // Labels for the ykeys -- will be displayed when you hover over the
+    // chart.
+    labels: ['Value'],
+    barColors: ['#d28c8c'],
+    hideHover: true
+  });
+
+  new Morris.Bar({
+    element: 'costchart',
+    data: [
+      { year: 'Beer cost', value: #{@total_beer_cost} },
+      { year: 'Wine cost', value: #{@total_wine_cost} },
+      { year: 'Cocktails cost', value: #{@total_cocktail_cost} },
+    ],
+    xkey: 'year',
+    ykeys: ['value'],
+    labels: ['Value'],
+    barColors: ['#d28c8c'],
+    hideHover: true
+  });
+
+  new Morris.Bar({
+    element: 'unitchart',
+    data: [
+      { year: 'Beer unit', value: #{@total_beer_units} },
+      { year: 'Wine unit', value: #{@total_wine_units} },
+      { year: 'Cocktails unit', value: #{@total_cocktail_units} },
+    ],
+    xkey: 'year',
+    ykeys: ['value'],
+    labels: ['Value'],
+    barColors: ['#d28c8c'],
+    hideHover: true
+  });
+
+  $("#totals_button").click(function(){
+    $("#totalschart").removeClass("hide");
+    $("#costchart").addClass("hide");
+    $("#unitchart").addClass("hide");
+  });
+
+  $("#cost_button").click(function(){
+    $("#totalschart").addClass("hide");
+    $("#costchart").removeClass("hide");
+    $("#unitchart").addClass("hide");
+  });
+
+  $("#unit_button").click(function(){
+    $("#totalschart").addClass("hide");
+    $("#costchart").addClass("hide");
+    $("#unitchart").removeClass("hide");
+  });
 
 / ------- FOR TABLE -------
 javascript:
@@ -102,21 +181,6 @@ javascript:
     $(".click_notice").addClass("blur");
   });
 
-/ ------- FOR TRIP EXPLANATIONS -------
 javascript:
-  $(document).ready(function(){
-    var trip = new Trip([
-     {
-         sel : $('#drinks_table'),
-         position : 'e',
-         content : 'Click on each row to reveal more data',
-         delay : 4000,
-     }], {
-
-     });
-
-    $("p").on("click", function() {
-      trip.start();
-
-    });
-    });
+  $("#costchart").addClass("hide");
+  $("#unitchart").addClass("hide");
