@@ -26,6 +26,10 @@ h1 {
   padding: 0;
 }
 
+a:hover{
+  text-decoration: none;
+}
+
 .space1{
   position: absolute;
   right: 455px;
@@ -182,8 +186,17 @@ h1 {
   margin-top: 100px;
 }
 
+.login-small-push{
+  margin-top: 40px;
+}
+
 .page-header {
   color: white;
+}
+
+.password-check{
+  width: 30%;
+  margin-left: 600px;
 }
 
 legend {

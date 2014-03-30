@@ -1,12 +1,12 @@
-/ style html, body {background: url("http://www.topwallpaperphoto.com/wp-content/uploads/2013/09/architecture-bar-beach.jpg") no-repeat center center fixed; background-size:cover; }
+style html, body {background: url("https://farm4.staticflickr.com/3735/13510827835_a4f96f1f14_b.jpg") no-repeat center center fixed; background-size:cover; }
 
 .reset-form.row
-  .col-lg-8.col-lg-offset-2
+  .col-lg-8.col-lg-offset-2.white_background.password-check
     = form_for :user, url: reset_url(@user.code), method: :patch, html: { role: "form" } do |f|
-      fieldset.login-push
-        legend Please choose a new password for "#{@user.email}"
-        .row.login-push
-          .col-lg-6
+      fieldset.login-small-push
+        / legend Please choose a new password for "#{@user.email}"
+        .row
+          .col-lg-12
             .form-group
               = f.label :password
               = f.password_field :password, class: "form-control showable-password", placeholder: "Password"
@@ -16,7 +16,7 @@
             .form-group
               => f.submit "Save", class: "btn btn-success"
               button#show-password-button.btn.btn-warning data-state="show" Show Passwords
-          .col-lg-6
+          .col-lg-12
             p#pw-quality Password too weak!
             #pw-meter.strength-meter.progress.progress-striped
               #strength-meter.meter.progress-bar role="progressbar" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0"
