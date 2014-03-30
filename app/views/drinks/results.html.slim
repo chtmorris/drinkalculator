@@ -128,3 +128,9 @@ javascript:
 javascript:
   $("#costchart").addClass("hide");
   $("#unitchart").addClass("hide");
+
+javascript:
+  if ('#{@total_beer}' > 100)
+    { $(".row").addClass("blur");
+      alert("WOWWEEE. You've been at the 7s and left your beer googles are on!");
+    }

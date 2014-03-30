@@ -46,6 +46,7 @@ $(document).ready(function(){
     $(this).nextUntil('tr.collapsey').slideToggle(100).promise()
     $(".click_notice").addClass("hide");
   });
+
   $("html").click(function(){
     $(".row").removeClass("blur");
     $(".row").removeClass("hide");
@@ -54,5 +55,3 @@ $(document).ready(function(){
 
 // $("#costchart").addClass("hide");
 // $("#unitchart").addClass("hide");
-
-// console.log('here')
