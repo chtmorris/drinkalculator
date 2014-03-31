@@ -34,20 +34,56 @@ class DrinksController < ApplicationController
       @total_cocktail = cocktails
     end
 
-    @total_beer_cost = @total_beer * 50
-    @total_wine_cost = @total_wine * 60
-    @total_cocktail_cost = @total_cocktail * 90
+    beercost = 0
+    for drink in current_user.binge
+      beercost = beercost + (drink.beercost.to_i * drink.beer.to_i)
+      @total_beer_cost = beercost
+    end
 
-    @total_beer_units = @total_beer * 2
-    @total_wine_units = @total_wine * 2
-    @total_cocktail_units = @total_cocktail * 3
+    winecost = 0
+    for drink in current_user.binge
+      winecost = winecost + (drink.winecost.to_i * drink.wine.to_i)
+      @total_wine_cost = winecost
+    end
+
+    cocktailcost = 0
+    for drink in current_user.binge
+      cocktailcost = cocktailcost + (drink.cocktailcost.to_i * drink.cocktail.to_i)
+      @total_cocktail_cost = cocktailcost
+    end
+
+    beerunit = 0
+    for drink in current_user.binge
+      beerunit = beerunit + (drink.beerunit.to_i * drink.beer.to_i)
+      @total_beer_units = beerunit
+    end
+
+    wineunit = 0
+    for drink in current_user.binge
+      wineunit = wineunit + (drink.wineunit.to_i * drink.wine.to_i)
+      @total_wine_units = wineunit
+    end
+
+    cocktailunit = 0
+    for drink in current_user.binge
+      cocktailunit = cocktailunit + (drink.cocktailunit.to_i * drink.cocktail.to_i)
+      @total_cocktail_units = cocktailunit
+    end
+
+    # @total_beer_cost = @total_beer * 50
+    # @total_wine_cost = @total_wine * 60
+    # @total_cocktail_cost = @total_cocktail * 100
+
+    # @total_beer_units = @total_beer * 3
+    # @total_wine_units = @total_wine * 2
+    # @total_cocktail_units = @total_cocktail * 5
 
   end
 
   private
 
   def drink_params
-    params.require(:user).permit(:beer, :wine, :cocktail, :date)
+    params.require(:user).permit(:beer, :wine, :cocktail, :date, :beercost, :winecost, :cocktailcost)
 
   end
   # sum(drink.beer.to_i)

@@ -40,6 +40,44 @@ style html, body {background: url("http://wallpapersus.com/wp-content/uploads/20
                 div class="col-md-4"
                   = f.text_field :cocktail, class: "form-control input-md", placeholder: "Cocktails"
 
+              .form-group.hidden-fields.hide
+                div class="col-md-4"
+                  = f.label :Cost
+                  = f.text_field :beercost, class: "form-control input-md", value: "50"
+
+              .form-group.hidden-fields.hide
+                div class="col-md-4"
+                  = f.label :Cost
+                  = f.text_field :winecost, class: "form-control input-md", value: "60"
+
+              .form-group.hidden-fields.hide
+                div class="col-md-4"
+                  = f.label :Cost
+                  = f.text_field :cocktailcost, class: "form-control input-md", value: "100"
+
+              .form-group.hidden-fields.hide
+                div class="col-md-4"
+                  = f.label :Units
+                  = f.text_field :beerunit, class: "form-control input-md", value: "3"
+
+              .form-group.hidden-fields.hide
+                div class="col-md-4"
+                  = f.label :Units
+                  = f.text_field :wineunit, class: "form-control input-md", value: "2"
+
+              .form-group.hidden-fields.hide
+                div class="col-md-4"
+                  = f.label :Units
+                  = f.text_field :cocktailunit, class: "form-control input-md", value: "5"
+
               div class="form-group"
                 div class="col-md-12"
                   = f.submit "Add drinks", class: "btn btn-success col-md-12"
+
+              .advanced.p Advanced
+
+javascript:
+  $(".advanced").click(function(){
+    $(".hidden-fields").removeClass("hide");
+    $(".advanced").addClass("hide");
+  });

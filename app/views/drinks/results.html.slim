@@ -35,19 +35,19 @@ style html, body {background: url("http://farm9.staticflickr.com/8204/8237429748
             tr.active.den
               td Cost (HKD)
               td
-                = cost_beer = drink.beer.to_i * 50
+                = drink.beercost.to_i * drink.beer.to_i
               td
-                = cost_wine = drink.wine.to_i * 60
+                = drink.winecost.to_i * drink.wine.to_i
               td
-                = cost_cocktail = drink.cocktail.to_i * 90
+                = drink.cocktailcost.to_i * drink.cocktail.to_i
             tr.active.den
               td Units
               td
-                = drink.beer.to_i * 2
+                = drink.beerunit.to_i * drink.beer.to_i
               td
-                = drink.wine.to_i * 2
+                = drink.wineunit.to_i * drink.wine.to_i
               td
-                = drink.wine.to_i * 3
+                = drink.cocktailunit.to_i * drink.cocktail.to_i
           tr.danger.collapsey
             td Total
             td #{@total_beer}

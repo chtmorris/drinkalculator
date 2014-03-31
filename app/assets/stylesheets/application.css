@@ -137,6 +137,19 @@ a:hover{
   margin-top: 15px;
 }
 
+.hidden-fields{
+  margin-top: 130px;
+  text-align: left;
+}
+
+.advanced{
+  text-align: right;
+  color: blue;
+  padding-right: 14px;
+  padding-top: 160px;
+  cursor: pointer;
+}
+
 .control-label {
   color: white;
   font-weight: normal;
