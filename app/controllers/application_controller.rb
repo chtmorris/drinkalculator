@@ -6,14 +6,13 @@ class ApplicationController < ActionController::Base
   before_filter :make_action_mailer_user_request_host_and_protocol
 
   def is_authenticated?
-    # not session[:user_id].nil?
-    # redirect_to login_url if session[:user_id].nil?
     redirect_to login_url unless current_user
   end
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
   end
+
 
   private
 
