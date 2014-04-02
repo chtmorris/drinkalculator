@@ -18,12 +18,7 @@ $grid-columns: 36;
 
 html, body {
   height: 100%;
-  /* The html and body elements cannot have any padding or margin. */
-  /*background: url("http://www.sevva.hk/images/about/terrace/terrace_seaview.jpg") no-repeat center center fixed;*/
-/*  background-size:cover;*/
 }
-
-/**= require bootstrap-datepicker*/
 
 h1 {
   margin: 0;
@@ -78,7 +73,7 @@ a:hover{
 }
 
 .button-padding{
-  margin: 0 0px 0 0px;
+  margin: 0 25px 0 25px;
   position: center;
 }
 
@@ -96,17 +91,17 @@ a:hover{
 
 #totals_button{
   background-color: #999;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 #cost_button{
   background-color: #808080;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 #unit_button{
   background-color: #656566;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .center-row{
@@ -194,6 +189,11 @@ a:hover{
 
 .page-header {
   color: white;
+}
+
+.charts{
+  height: 300px;
+  font-size: 18px;
 }
 
 

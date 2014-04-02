@@ -2,15 +2,13 @@ style html, body {background: url("http://farm9.staticflickr.com/8204/8237429748
 
 .main.container.white_background role="main"
   .row.graph-padding
-    div id="totalschart" class="" style="height: 300px; font-size: 18px;"
-    div id="costchart" class="" style="height: 300px; font-size: 18px;"
-    div id="unitchart" class="" style="height: 300px; font-size: 18px;"
-    .center-row
-      .btn.btn-info.col-xs-12.button-padding id="totals_button" Show totals
-      .btn.btn-info.col-xs-12.button-padding id="cost_button" Show costs
-      .btn.btn-info.col-xs-12.button-padding id="unit_button" Show units
-
-    div class="col-xs-12"
+    div id="totalschart" class="charts col-xs-36"
+    div id="costchart" class="charts"
+    div id="unitchart" class="charts"
+    .center-row.col-xs-offset-2
+      .btn.btn-info.col-xs-10.button-padding id="totals_button" Show totals
+      .btn.btn-info.col-xs-10.button-padding id="cost_button" Show costs
+      .btn.btn-info.col-xs-10.button-padding id="unit_button" Show units
 
   div id="icons"
     .row.table-padding
@@ -64,31 +62,23 @@ style html, body {background: url("http://farm9.staticflickr.com/8204/8237429748
             td #{@total_wine_units}
             td #{@total_cocktail_units}
 
-    / p.click_notice.deepshadow Click to take off those beer googles!
-
 script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"
 script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"
 script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"
 = javascript_include_tag "results"
 
 
+// Necessary graph javascript owing to data rendering on the page
 javascript:
   new Morris.Bar({
-    // ID of the element in which to draw the chart.
     element: 'totalschart',
-    // Chart data records -- each entry in this array corresponds to a point on
-    // the chart.
     data: [
       { year: 'Total beers', value: #{@total_beer} },
       { year: 'Total wine', value: #{@total_wine} },
       { year: 'Total cocktails', value: #{@total_cocktail} },
     ],
-    // The name of the data record attribute that contains x-values.
     xkey: 'year',
-    // A list of names of data record attributes that contain y-values.
     ykeys: ['value'],
-    // Labels for the ykeys -- will be displayed when you hover over the
-    // chart.
     labels: ['Value'],
     barColors: ['#999'],
     hideHover: true,
@@ -125,23 +115,25 @@ javascript:
     gridTextSize: 16
   });
 
+
+// Javascript calling page variables
 javascript:
   $("#costchart").addClass("hide");
   $("#unitchart").addClass("hide");
 
-javascript:
+
   if (('#{@total_beer}' > 100) && ('#{@total_beer}' < 200))
     { $(".row").addClass("blur");
       alert("WOWWEEE. You've been at the 7s and left your beer googles are on!");
     }
 
-javascript:
+
   if ('#{@total_beer}' > 1000)
     { $(".main").addClass("persp");
       $(".main").addClass("mousemove_rotate");
     }
 
-javascript:
+
   if ('#{@total_beer}' > 10000)
     { window.location.replace("http://www.alcoholics-anonymous.org/");
       }
