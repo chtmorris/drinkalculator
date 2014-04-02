@@ -8,7 +8,6 @@ class DrinksController < ApplicationController
       @binges.update_attributes(drink_params)
       redirect_to results_url
     end
-
   end
 
   def blank_form
@@ -16,68 +15,24 @@ class DrinksController < ApplicationController
   end
 
   def results
-    beers = 0
-    for drink in current_user.binge
-      beers = beers + drink.beer.to_i
-      @total_beer = beers
-    end
+    @total_beer = current_user.total_beer
+    @total_wine = current_user.total_wine
+    @total_cocktail = current_user.total_cocktail
 
-    wines = 0
-    for drink in current_user.binge
-      wines = wines + drink.wine.to_i
-      @total_wine = wines
-    end
+    @total_beer_cost = current_user.beercost
+    @total_wine_cost = current_user.winecost
+    @total_cocktail_cost = current_user.cocktailcost
 
-    cocktails = 0
-    for drink in current_user.binge
-      cocktails = cocktails + drink.cocktail.to_i
-      @total_cocktail = cocktails
-    end
-
-    beercost = 0
-    for drink in current_user.binge
-      beercost = beercost + (drink.beercost.to_i * drink.beer.to_i)
-      @total_beer_cost = beercost
-    end
-
-    winecost = 0
-    for drink in current_user.binge
-      winecost = winecost + (drink.winecost.to_i * drink.wine.to_i)
-      @total_wine_cost = winecost
-    end
-
-    cocktailcost = 0
-    for drink in current_user.binge
-      cocktailcost = cocktailcost + (drink.cocktailcost.to_i * drink.cocktail.to_i)
-      @total_cocktail_cost = cocktailcost
-    end
-
-    beerunit = 0
-    for drink in current_user.binge
-      beerunit = beerunit + (drink.beerunit.to_i * drink.beer.to_i)
-      @total_beer_units = beerunit
-    end
-
-    wineunit = 0
-    for drink in current_user.binge
-      wineunit = wineunit + (drink.wineunit.to_i * drink.wine.to_i)
-      @total_wine_units = wineunit
-    end
-
-    cocktailunit = 0
-    for drink in current_user.binge
-      cocktailunit = cocktailunit + (drink.cocktailunit.to_i * drink.cocktail.to_i)
-      @total_cocktail_units = cocktailunit
-    end
-
+    @total_beer_units = current_user.beerunit
+    @total_wine_units = current_user.wineunit
+    @total_cocktail_units = current_user.cocktailunit
   end
+
 
   private
 
   def drink_params
     params.require(:user).permit(:beer, :wine, :cocktail, :date, :beercost, :winecost, :cocktailcost)
-
   end
-  # sum(drink.beer.to_i)
 
 end

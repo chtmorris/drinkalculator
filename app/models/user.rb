@@ -59,6 +59,79 @@ class User
     end
   end
 
+  def total_beer
+    beers = 0
+    for drinks in self.binge
+      beers = beers + drinks.beer.to_i
+    end
+    return beers
+  end
+
+  def total_wine
+    wine = 0
+    for drinks in self.binge
+      wine = wine + drinks.wine.to_i
+    end
+    return wine
+  end
+
+  def total_cocktail
+    cocktail = 0
+    for drinks in self.binge
+      cocktail = cocktail + drinks.cocktail.to_i
+    end
+    return cocktail
+  end
+
+  def beercost
+    beercost = 0
+    for drink in self.binge
+      beercost = beercost + (drink.beercost.to_i * drink.beer.to_i)
+    end
+    return beercost
+  end
+
+  def winecost
+    winecost = 0
+    for drink in self.binge
+      winecost = winecost + (drink.winecost.to_i * drink.wine.to_i)
+    end
+    return winecost
+  end
+
+  def cocktailcost
+    cocktailcost = 0
+    for drink in self.binge
+      cocktailcost = cocktailcost + (drink.cocktailcost.to_i * drink.cocktail.to_i)
+    end
+    return cocktailcost
+  end
+
+  def beerunit
+    beerunit = 0
+    for drink in self.binge
+      beerunit = beerunit + (drink.beerunit.to_i * drink.beer.to_i)
+    end
+    return @total_beer_units = beerunit
+  end
+
+  def wineunit
+    wineunit = 0
+    for drink in self.binge
+      wineunit = wineunit + (drink.wineunit.to_i * drink.wine.to_i)
+    end
+    return @total_wine_units = wineunit
+  end
+
+  def cocktailunit
+    cocktailunit = 0
+    for drink in self.binge
+      cocktailunit = cocktailunit + (drink.cocktailunit.to_i * drink.cocktail.to_i)
+    end
+    return @total_cocktail_units = cocktailunit
+  end
+
+
   protected
 
   def set_random_password
