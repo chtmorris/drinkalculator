@@ -1,10 +1,8 @@
 style html, body {background: url("http://wallpapersus.com/wp-content/uploads/2012/11/Cocktails-Drinks.jpg") no-repeat center center fixed; background-size:cover;}
 
-.main.container.white_background role="main"
-  .row.container-padding
-    div class="col-xs-36"
-      .welcome
-        p Hey there #{@current_user.email}, what have you had to drink this fine day?
+.main.container.white_background.col-xs-24.col-xs-offset-6 role="main"
+  .welcome
+    p Hey there #{@current_user.email}, what have you had to drink this fine day?
 
   div id="icons"
     .row.container-padding
@@ -24,7 +22,7 @@ style html, body {background: url("http://wallpapersus.com/wp-content/uploads/20
             form id="login-form" method="post" action="#" accept-charset="UTF-8" class="form-horizontal"
 
               .form-group
-                .col-md-6.col-md-offset-3
+                .col-md-18.col-md-offset-9
                   .date
                     = f.text_field :date, class: "form-control input-md", value: "#{Time.now.strftime("%-d/%m/%Y")}"
 
@@ -76,8 +74,4 @@ style html, body {background: url("http://wallpapersus.com/wp-content/uploads/20
 
               .advanced.p Advanced
 
-javascript:
-  $(".advanced").click(function(){
-    $(".hidden-fields").removeClass("hide");
-    $(".advanced").addClass("hide");
-  });
+= javascript_include_tag "index"
