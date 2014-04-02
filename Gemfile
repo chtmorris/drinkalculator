@@ -10,6 +10,7 @@ gem 'slim'
 gem 'bson_ext'
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'bcrypt'
+gem 'bootstrap-sass', '~> 3.1.1.0'
 
 group :assets do
   gem 'coffee-rails'

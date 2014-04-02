@@ -70,14 +70,6 @@ class DrinksController < ApplicationController
       @total_cocktail_units = cocktailunit
     end
 
-    # @total_beer_cost = @total_beer * 50
-    # @total_wine_cost = @total_wine * 60
-    # @total_cocktail_cost = @total_cocktail * 100
-
-    # @total_beer_units = @total_beer * 3
-    # @total_wine_units = @total_wine * 2
-    # @total_cocktail_units = @total_cocktail * 5
-
   end
 
   private

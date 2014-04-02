@@ -2,17 +2,17 @@ style html, body {background: url("http://wallpapersus.com/wp-content/uploads/20
 
 .main.container.white_background role="main"
   .row.container-padding
-    div class="col-md-12"
+    div class="col-xs-36"
       .welcome
         p Hey there #{@current_user.email}, what have you had to drink this fine day?
 
   div id="icons"
     .row.container-padding
-      .col-md-4
+      .col-xs-12
         .icon-beer
-      .col-md-4
+      .col-xs-12
         .icon-wine
-      .col-md-4
+      .col-xs-12
         .icon-glass
 
 
@@ -29,50 +29,50 @@ style html, body {background: url("http://wallpapersus.com/wp-content/uploads/20
                     = f.text_field :date, class: "form-control input-md", value: "#{Time.now.strftime("%-d/%m/%Y")}"
 
               .form-group
-                div class="col-md-4"
+                div class="col-xs-12"
                   = f.text_field :beer, class: "form-control input-md", placeholder: "Pints of beer"
 
               .form-group
-                div class="col-md-4"
+                div class="col-xs-12"
                   = f.text_field :wine, class: "form-control input-md", placeholder: "Glasses of wine"
 
               .form-group
-                div class="col-md-4"
+                div class="col-xs-12"
                   = f.text_field :cocktail, class: "form-control input-md", placeholder: "Cocktails"
 
               .form-group.hidden-fields.hide
-                div class="col-md-4"
+                div class="col-xs-12"
                   = f.label :Cost
                   = f.text_field :beercost, class: "form-control input-md", value: "50"
 
               .form-group.hidden-fields.hide
-                div class="col-md-4"
+                div class="col-xs-12"
                   = f.label :Cost
                   = f.text_field :winecost, class: "form-control input-md", value: "60"
 
               .form-group.hidden-fields.hide
-                div class="col-md-4"
+                div class="col-xs-12"
                   = f.label :Cost
                   = f.text_field :cocktailcost, class: "form-control input-md", value: "100"
 
               .form-group.hidden-fields.hide
-                div class="col-md-4"
+                div class="col-xs-12"
                   = f.label :Units
                   = f.text_field :beerunit, class: "form-control input-md", value: "3"
 
               .form-group.hidden-fields.hide
-                div class="col-md-4"
+                div class="col-xs-12"
                   = f.label :Units
                   = f.text_field :wineunit, class: "form-control input-md", value: "2"
 
               .form-group.hidden-fields.hide
-                div class="col-md-4"
+                div class="col-xs-12"
                   = f.label :Units
                   = f.text_field :cocktailunit, class: "form-control input-md", value: "5"
 
               div class="form-group"
-                div class="col-md-12"
-                  = f.submit "Add drinks", class: "btn btn-success col-md-12"
+                div class="col-xs-36"
+                  = f.submit "Add drinks", class: "btn btn-success col-xs-36"
 
               .advanced.p Advanced
 

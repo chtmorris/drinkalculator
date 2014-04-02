@@ -1,3 +1,7 @@
+$grid-columns: 36;
+@import "bootstrap";
+
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -86,22 +90,22 @@ a:hover{
 }
 
 .btn-info{
-  font-size: 12px,
+  font-size: 12px;
 }
 
 #totals_button{
   background-color: #999;
-  font-size: 12px,
+  font-size: 12px;
 }
 
 #cost_button{
   background-color: #808080;
-  font-size: 12px,
+  font-size: 12px;
 }
 
 #unit_button{
   background-color: #656566;
-  font-size: 12px,
+  font-size: 12px;
 }
 
 .center-row{

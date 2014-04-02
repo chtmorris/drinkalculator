@@ -6,11 +6,11 @@ style html, body {background: url("http://farm9.staticflickr.com/8204/8237429748
     div id="costchart" class="" style="height: 300px; font-size: 18px;"
     div id="unitchart" class="" style="height: 300px; font-size: 18px;"
     .center-row
-      .btn.btn-info.col-md-4.button-padding id="totals_button" Show totals
-      .btn.btn-info.col-md-4.button-padding id="cost_button" Show costs
-      .btn.btn-info.col-md-4.button-padding id="unit_button" Show units
+      .btn.btn-info.col-xs-12.button-padding id="totals_button" Show totals
+      .btn.btn-info.col-xs-12.button-padding id="cost_button" Show costs
+      .btn.btn-info.col-xs-12.button-padding id="unit_button" Show units
 
-    div class="col-md-4"
+    div class="col-xs-12"
 
   div id="icons"
     .row.table-padding
@@ -130,7 +130,18 @@ javascript:
   $("#unitchart").addClass("hide");
 
 javascript:
-  if ('#{@total_beer}' > 100)
+  if (('#{@total_beer}' > 100) && ('#{@total_beer}' < 200))
     { $(".row").addClass("blur");
       alert("WOWWEEE. You've been at the 7s and left your beer googles are on!");
     }
+
+javascript:
+  if ('#{@total_beer}' > 1000)
+    { $(".main").addClass("persp");
+      $(".main").addClass("mousemove_rotate");
+    }
+
+javascript:
+  if ('#{@total_beer}' > 10000)
+    { window.location.replace("http://www.alcoholics-anonymous.org/");
+      }
