@@ -2,7 +2,6 @@ doctype html
 
 head
   title Drinkalculator
-  / link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet"
   = stylesheet_link_tag "application", media: "all"
   = stylesheet_link_tag "fontello", media: "all"
   = stylesheet_link_tag "trip", media: "all"
@@ -19,10 +18,10 @@ body
         .pull-right
           = link_to "Log Out", logout_url, method: :delete, class: "btn btn-danger logout-link" if current_user
           = link_to "Register", register_url, class: "btn btn-primary logout-link" if !current_user
-        h1.navbar-brand style="color: white;" Drinkalculator
-        h1.navbar-brand.space1 style="color: #999;"
+        h1.navbar-brand Drinkalculator
+        h1.navbar-brand.space1
           = link_to "add drinks", root_url, class: "" if current_user
-        h1.navbar-brand.space2 style="color: #999;"
+        h1.navbar-brand.space2
           = link_to "results", results_url, class: "" if current_user
 
     == yield
